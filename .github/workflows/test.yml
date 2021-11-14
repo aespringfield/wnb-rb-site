@@ -38,8 +38,6 @@ jobs:
           bundle exec rails db:create
           bundle exec rails db:migrate
           yarn --frozen-lockfile
-      - name: Install JavaScript dependencies
-        run: yarn install
       - name: Run Ruby unit tests
         run: bundle exec rspec
       - name: Run JavaScript unit tests
@@ -47,4 +45,4 @@ jobs:
       - name: Run Rubocop
         run: rubocop --force-exclusion
       - name: Run ESLint
-        run: eslint . --ext .js,.jsx
+        run: yarn run eslint . --ext .js,.jsx
